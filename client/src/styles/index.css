@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+
+:root {
+  --background: #fbfaf9;
+  --foreground: #1d0f34;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fbfaf9;
+    --foreground: #1d0f34;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+p {
+  font-family: var(--mark-regular), sans-serif;
+}
+
+label,
+input {
+  font-family: var(--mark-regular), sans-serif;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--mark-regular), sans-serif;
+}
+
+.cross__svg {
+  border-radius: 50%;
+  display: block;
+  stroke-width: 3;
+}
+
+.cross__circle {
+  animation: 0.7s ease 0s normal forwards 1 running stroke;
+  fill: none;
+  margin: 0 auto;
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 4;
+}
+
+.cross__path {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  transform-origin: 50% 50% 0;
+}
+
+.cross__path--right {
+  animation: 0.3s ease 0.7s normal forwards 1 running stroke;
+}
+
+.cross__path--left {
+  animation: 1s ease 0.7s normal forwards 1 running stroke;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.7s forwards;
+}
+
+.animate-slide-out {
+  animation: slide-out 0.7s forwards;
+}
